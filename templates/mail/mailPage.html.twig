@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link type="text/css" rel="stylesheet" href="{{ asset('styles/mail.css') }}">
+{% endblock %}
+
+{% block body %}
+    <div class="c-mail">
+        <div class="container">
+            <div class="c-mail__content">
+                <h1 class="c-mail__back-button" onclick="history.go(-1)"><</h1>
+                <h1>{{ mail.subject }}</h1>
+                <h2>A message sent from {{ mail.sender }} to {{ mail.receiver }}
+                    on {{ mail.date|date('Y-m-d H:i:s') }}</h2>
+                <p>{{ mail.content }}</p>
+            </div>
+        </div>
+    </div>
+{% endblock %}

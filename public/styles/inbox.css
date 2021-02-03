@@ -1,0 +1,52 @@
+.c-inbox {
+    padding-top: 10rem;
+}
+
+.unread {
+    background-color: white;
+}
+
+.compose-button {
+    padding: 0.5rem 1.5rem;
+    border: none;
+    border-radius: 0.5rem;
+    background-color: #0074D9;
+    color: white;
+}
+
+table {
+    table-layout: fixed;
+}
+
+th {
+    padding: 1rem;
+}
+
+tr {
+    border-bottom: 1px solid black;
+    height: 1rem;
+    cursor: pointer;
+}
+
+td {
+    max-width: 22rem;
+    padding: 1rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.c-compose {
+    position: fixed;
+    top: 10rem;
+    left: 40%;
+    background-color: white;
+    padding: 2rem;
+    animation: fade-in 2s;
+    border: 1px solid black;
+    border-radius: 1.5rem;
+}
+
+.form-control {
+    margin: 1rem 0;
+}

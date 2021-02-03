@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link type="text/css" rel="stylesheet" href="{{ asset('styles/home.css') }}"
+{% endblock %}
+
+{% block body %}
+    <div class="c-home">
+        <div class="container">
+            <div class="row">
+                <div class="col-6 c-home__left">
+                    <img src="{{ asset('assets/images/logo-full.png') }}">
+                    <h1>A fast, reliable, secure mail client.</h1>
+                    <h2>For everyone.</h2>
+                    <ul>
+                        <li>Includes the latest version of POP3</li>
+                        <li>Safe, encrypted P2P connection</li>
+                        <li>Quick, HRM-based delivery</li>
+                        <li>I'm making all of this up</li>
+                        <li>And yet you're still gonna use it, aren't you?</li>
+                        <li>Sucker.</li>
+                    </ul>
+                    <a href="#">Find out more ></a>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

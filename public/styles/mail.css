@@ -1,0 +1,13 @@
+.c-mail {
+    padding-top: 10rem;
+}
+
+.c-mail__content {
+    background-color: white;
+    padding: 2rem;
+}
+
+.c-mail__back-button {
+    color: #0074D9;
+    cursor: pointer;
+}

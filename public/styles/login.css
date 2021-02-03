@@ -1,0 +1,28 @@
+.c-login {
+    padding-top: 15rem;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+}
+
+.c-login__popup {
+    background-color: white;
+    -webkit-box-shadow: 10px 10px 31px 9px rgba(0,0,0,0.75);
+    -moz-box-shadow: 10px 10px 31px 9px rgba(0,0,0,0.75);
+    box-shadow: 10px 10px 31px 9px rgba(0,0,0,0.75);
+    margin: 0 25%;
+    padding: 5rem;
+    border-radius: 0.6rem;
+}
+
+.c-login__button {
+    padding: 0.5rem 1.5rem;
+    border: none;
+    border-radius: 0.5rem;
+}
+
+.c-login__button,
+input {
+    margin: 2rem 0;
+}

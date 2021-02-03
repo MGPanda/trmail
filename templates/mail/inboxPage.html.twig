@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link type="text/css" rel="stylesheet" href="{{ asset('styles/inbox.css') }}">
+{% endblock %}
+
+{% block body %}
+    {% for flash in app.flashes('success') %}
+        <div class="flash flash__success"><p>{{ flash }}</p></div>
+    {% endfor %}
+    {% for flash in app.flashes('error') %}
+        <div class="flash flash__error"><p>{{ flash }}</p></div>
+    {% endfor %}
+    <div class="c-inbox">
+        <div class="container">
+            <button class="compose-button" data-function="composeButton">Compose</button>
+            <table>
+                <thead>
+                <tr>
+                    <th>#</th>
+                    <th>From</th>
+                    <th>To</th>
+                    <th>Subject</th>
+                    <th>Sent on</th>
+                    <th>Content</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for mail in mails %}
+                    <tr onclick="window.location='/mail/{{ mail.id }}'" class="{% if mail.isRead == 0 and mail.sender != userEmail %}unread{% endif %}">
+                        <td><input type="checkbox"></td>
+                        <td>{{ mail.sender }}</td>
+                        <td>{{ mail.receiver }}</td>
+                        <td>{{ mail.subject }}</td>
+                        <td>{{ mail.date|date('Y-m-d H:i:s') }}</td>
+                        <td>{{ mail.content }}</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock %}
+
+{% block scripts %}
+    {{ parent() }}
+    <script src="{{ asset('scripts/inbox.js') }}" defer></script>
+{% endblock %}

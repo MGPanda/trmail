@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link type="text/css" rel="stylesheet" href="{{ asset('styles/login.css') }}">
+{% endblock %}
+
+{% block body %}
+    {% for flash in app.flashes('error') %}
+        <div class="flash flash__error"><p>{{ flash }}</p></div>
+    {% endfor %}
+    <div class="c-login">
+        <div class="c-login__popup">
+            {{ form_start(loginForm) }}
+            <div class="row">
+                <div class="col">
+                    {{ form_widget(loginForm.email) }}
+                </div>
+                <div class="col">
+                    <input class="form-control" type="text" placeholder="@trm.com" readonly>
+                </div>
+            </div>
+            {{ form_widget(loginForm.password) }}
+            {{ form_widget(loginForm.remember) }}
+            <button class="c-login__button" type="submit">Register and/or Login</button>
+            {{ form_end(loginForm) }}
+        </div>
+    </div>
+{% endblock %}
