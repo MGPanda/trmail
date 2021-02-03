@@ -24,7 +24,7 @@ class MainController extends AbstractController
     }
 
     /**
-     * @Route("/login", name="loginPage")
+     * @Route("/loginPage", name="loginPage")
      * @param Request $r
      * @param EntityManagerInterface $emi
      * @return Response

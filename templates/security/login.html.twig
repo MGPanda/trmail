@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Login page - TRM{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link type="text/css" rel="stylesheet" href="{{ asset('styles/login.css') }}">
+{% endblock %}
+
+{% block body %}
+
+    {% for flash in app.flashes('error') %}
+        <div class="flash flash__error"><p>{{ flash }}</p></div>
+    {% endfor %}
+
+    <div class="c-login">
+        <div class="c-login__popup">
+            <form method="post">
+                <div class="row">
+                    <div class="col">
+                        <input type="text" value="{{ last_username }}" name="email" id="inputEmail"
+                               class="form-control"
+                               placeholder="Input your username"
+                               required autofocus>
+                    </div>
+                    <div class="col">
+                        <input class="form-control" type="text" placeholder="@trm.com" readonly>
+                    </div>
+                </div>
+                <input type="password" name="password" id="inputPassword" class="form-control"
+                       placeholder="Input your password" required>
+                <input type="checkbox" name="_remember_me" id="inputRemember"><label
+                        for="inputRemember"> Remind me for the
+                    next 30 days</label><br>
+                <input type="hidden" name="_csrf_token"
+                       value="{{ csrf_token('authenticate') }}">
+                <button class="c-login__button" type="submit">Register and/or Login</button>
+            </form>
+        </div>
+    </div>
+{% endblock %}

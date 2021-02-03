@@ -16,6 +16,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Security\Core\Security;
 
 class InboxController extends AbstractController
 {
@@ -29,7 +30,7 @@ class InboxController extends AbstractController
      */
     public function inboxPage(EntityManagerInterface $emi, Request $r, SessionInterface $session): Response
     {
-        $userEmail = $session->get('userEmail');
+        $userEmail = $r->getSession()->get(Security::LAST_USERNAME);
         $form = $this->createForm(ComposeFormType::class);
         $form->handleRequest($r);
 
