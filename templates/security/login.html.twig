@@ -15,27 +15,31 @@
 
     <div class="c-login">
         <div class="c-login__popup">
-            <form method="post">
-                <div class="row">
-                    <div class="col">
-                        <input type="text" value="{{ last_username }}" name="email" id="inputEmail"
-                               class="form-control"
-                               placeholder="Input your username"
-                               required autofocus>
+            {% if app.user %}
+                <h1>You are logged in as {{ app.user.username }}, <a href="{{ path('app_logout') }}">Logout</a></h1>
+            {% else %}
+                <form method="post">
+                    <div class="row">
+                        <div class="col">
+                            <input type="text" value="{{ last_username }}" name="email" id="inputEmail"
+                                   class="form-control"
+                                   placeholder="Input your username"
+                                   required autofocus>
+                        </div>
+                        <div class="col">
+                            <input class="form-control" type="text" placeholder="@trm.com" readonly>
+                        </div>
                     </div>
-                    <div class="col">
-                        <input class="form-control" type="text" placeholder="@trm.com" readonly>
-                    </div>
-                </div>
-                <input type="password" name="password" id="inputPassword" class="form-control"
-                       placeholder="Input your password" required>
-                <input type="checkbox" name="_remember_me" id="inputRemember"><label
-                        for="inputRemember"> Remind me for the
-                    next 30 days</label><br>
-                <input type="hidden" name="_csrf_token"
-                       value="{{ csrf_token('authenticate') }}">
-                <button class="c-login__button" type="submit">Register and/or Login</button>
-            </form>
+                    <input type="password" name="password" id="inputPassword" class="form-control"
+                           placeholder="Input your password" required>
+                    <input type="checkbox" name="_remember_me" id="inputRemember"><label
+                            for="inputRemember"> Remind me for the
+                        next 30 days</label><br>
+                    <input type="hidden" name="_csrf_token"
+                           value="{{ csrf_token('authenticate') }}">
+                    <button class="c-login__button" type="submit">Register and/or Login</button>
+                </form>
+            {% endif %}
         </div>
     </div>
 {% endblock %}
