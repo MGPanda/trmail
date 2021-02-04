@@ -26,3 +26,21 @@
 input {
     margin: 2rem 0;
 }
+
+.c-login__intro-text {
+    text-align: center;
+}
+
+label {
+    padding-left: 0.5rem;
+}
+
+.c-login__left-form {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.c-login__right-form {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}

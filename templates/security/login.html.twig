@@ -19,15 +19,16 @@
                 <h1>You are logged in as {{ app.user.username }}, <a href="{{ path('app_logout') }}">Logout</a></h1>
             {% else %}
                 <form method="post">
-                    <div class="row">
-                        <div class="col">
+                    <p class="c-login__intro-text"><em>Don't have an account? Don't worry- we'll make one for you!</em></p>
+                    <div class="row mx-0">
+                        <div class="col-10 px-0">
                             <input type="text" value="{{ last_username }}" name="email" id="inputEmail"
-                                   class="form-control"
+                                   class="form-control c-login__left-form"
                                    placeholder="Input your username"
                                    required autofocus>
                         </div>
-                        <div class="col">
-                            <input class="form-control" type="text" placeholder="@trm.com" readonly>
+                        <div class="col-2 px-0">
+                            <input class="form-control c-login__right-form" type="text" placeholder="@trm.com" readonly>
                         </div>
                     </div>
                     <input type="password" name="password" id="inputPassword" class="form-control"
