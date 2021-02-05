@@ -30,6 +30,9 @@ class InboxController extends AbstractController
      */
     public function inboxPage(EntityManagerInterface $emi, Request $r, SessionInterface $session): Response
     {
+        if (!$this->getUser()) {
+            return $this->redirectToRoute("homePage");
+        }
         $userEmail = $r->getSession()->get(Security::LAST_USERNAME);
         $form = $this->createForm(ComposeFormType::class);
         $form->handleRequest($r);
